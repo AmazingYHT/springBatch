@@ -21,11 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 // @Configurable
 // @EnableScheduling
 public class JobInvokerController {
-	@Autowired
+	//@Autowired
 	JobLauncher jobLauncher;
 
-	@Autowired
-	Job processJob;
+	//@Autowired
+	Job jobob;
 
 	@RequestMapping("/invokejob")
 	// @Scheduled(cron = "0 */1 *  * * * ")
@@ -40,10 +40,10 @@ public class JobInvokerController {
 		// JobLauncher jobLauncher = context.getBean(JobLauncher.class);
 		// jobLauncher.run(job, jobParameters);
 
-		JobParameters jobParameters = new JobParametersBuilder().addLong(
-				"time", System.currentTimeMillis()).toJobParameters();
-		jobLauncher.run(processJob, jobParameters);
-
+		 JobParameters jobParameters = new JobParametersBuilder().addLong(
+		 "time", System.currentTimeMillis()).toJobParameters();
+		 jobLauncher.run(jobob, jobParameters);
+		
 		return "Batch job has been invoked";
 	}
 }
